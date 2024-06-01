@@ -25,9 +25,9 @@ var configuration = new ConfigurationBuilder()
     .SetBasePath(builder.Environment.ContentRootPath)
     .AddJsonFile("appsettings.json")
     .Build();
+//This connection string includes the password for connecting to database. The password should be managed with a secrets tool.
+//Password is directly here to improve development speed
 var connectionString = "Server=localhost;Port=3306;Database=cars;Uid=root;Pwd=112233;";
-
-
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySQL(connectionString);
